@@ -48,7 +48,7 @@ export async function generateMetadata(props: Props) {
 }
 
 export default async function ProductPage(props: Props) {
-  const params = await (props.params as any);
+  const params = props.params;
   const product = await getProduct(params.id);
 
   if (!product) {
@@ -59,8 +59,8 @@ export default async function ProductPage(props: Props) {
     <Container sx={{ mt: 4 }}>
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
         <Image
-          src={product.image}
-          alt={product.title}
+          src={product?.image}
+          alt={product?.title}
           width={400}
           height={400}
           style={{ objectFit: 'contain', maxWidth: '100%' }}
@@ -68,20 +68,20 @@ export default async function ProductPage(props: Props) {
         />
         <Box sx={{ flex: 1 }}>
           <Typography variant="h5" gutterBottom>
-            {product.title}
+            {product?.title}
           </Typography>
           <Rating
             name="read-only"
-            value={product.rating.rate}
+            value={product?.rating?.rate}
             precision={0.1}
             readOnly
             size="medium"
           />
           <Typography variant="h6" color="primary" sx={{ mt: 2 }}>
-            ${product.price.toFixed(2)}
+            ${product?.price.toFixed(2)}
           </Typography>
           <Typography variant="body1" sx={{ mt: 2 }}>
-            {product.description}
+            {product?.description}
           </Typography>
           <AddToCartButton product={product} />
         </Box>
