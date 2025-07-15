@@ -1,5 +1,4 @@
-import HomeWrapper from "./home/homeWrapper";
-
+import Home from "./home/home";
 
 export async function generateMetadata({ searchParams }: { searchParams: URLSearchParams }) {
   const category = 'Tüm Ürünler';
@@ -12,5 +11,5 @@ export async function generateMetadata({ searchParams }: { searchParams: URLSear
 }
 
 export default function Page() {
-  return <HomeWrapper />;
+  return <Home />;
 }
