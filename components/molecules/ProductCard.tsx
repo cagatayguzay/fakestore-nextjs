@@ -8,8 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Button from '@mui/material/Button';
-import { useCart } from '../../contexts/CartContext';
+import AddToCartButton from './AddToCartButton';
 
 interface ProductCardProps {
   id: number;
@@ -29,7 +28,13 @@ export default function ProductCard({
   image,
   rating,
 }: ProductCardProps) {
-  const { addToCart } = useCart();
+
+  const _product = {
+    id,
+    title,
+    price,
+    image,
+  };
 
   return (
     <Card sx={{ maxWidth: '100%' }}>
@@ -61,14 +66,7 @@ export default function ProductCard({
           </Typography>
         </Box>
 
-        <Button
-          variant="contained"
-          size="small"
-          sx={{ mt: 1 }}
-          onClick={() => addToCart({ id, title, price, image })}
-        >
-          Sepete Ekle
-        </Button>
+        <AddToCartButton product={_product} />
       </CardContent>
     </Card>
   );
