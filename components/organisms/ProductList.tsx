@@ -24,6 +24,11 @@ interface ProductListProps {
   onPageChange: (page: number) => void;
 }
 
+export const generateMetadata = () => ({
+  title: 'Ürünler | Store App',
+  description: 'En popüler ürünleri filtreleyerek ve sıralayarak keşfedin.',
+});
+
 export default function ProductList({
   products,
   loading,

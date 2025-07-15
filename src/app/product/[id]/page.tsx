@@ -48,7 +48,7 @@ export async function generateMetadata(props: Props) {
 }
 
 export default async function ProductPage(props: Props) {
-  const params = props.params;
+  const params = await props.params;
   const product = await getProduct(params.id);
 
   if (!product) {
